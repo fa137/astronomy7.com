@@ -6,7 +6,7 @@
 'use strict';
 
 var MainPage = function() {
-  this.h1 = element(by.css('h1'));
+  this.logo = element(by.css('.md-toolbar-tools .logo span'));
 };
 
 module.exports = new MainPage();

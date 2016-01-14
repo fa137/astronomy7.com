@@ -1,16 +1,15 @@
 'use strict';
 
 describe('The main view', function () {
-  var page;
+    var page;
 
-  beforeEach(function () {
-    browser.get('/index.html');
-    page = require('./main.po');
-  });
+    beforeEach(function () {
+        browser.get('/index.html');
+        page = require('./main.po');
+    });
 
-  it('should include header with app name', function() {
-    expect(page.h1.getText()).toBe('AET: Skeleton App');
-   
-  });
+    it('should have app name inside angular-material toolbar', function () {
+        expect(page.logo.getText()).toContain('ASTRONOMY7');
+    });
 
 });

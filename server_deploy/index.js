@@ -1,17 +1,14 @@
 var express = require('express');
 var logger = require('morgan');
 var bodyParser = require('body-parser');
+var api_1 = require('./api');
 var pubDir = "./dist";
 var app = express();
 app.use(logger('dev'));
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(express.static(pubDir));
-app.get('/api', function (req, res, next) {
-    res.json({
-        api: 'Data served from backend server via port:3000 proxy'
-    });
-});
+app.use(api_1.default);
 app.get('/', function (req, res, next) {
     res.sendFile('index.html', { root: pubDir });
 });

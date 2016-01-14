@@ -2,6 +2,7 @@ import * as express from 'express';
 import * as logger from 'morgan';
 import * as bodyParser from 'body-parser';
 import {join} from 'path';
+import api from './api';
 
 const pubDir = "./dist";
 const app: express.Express = express();
@@ -13,11 +14,7 @@ app.use(bodyParser.urlencoded({ extended: false }));
 
 app.use(express.static(pubDir));
 
-app.get('/api', function(req, res, next){
-    res.json({
-        api: 'Data served from backend server via port:3000 proxy'
-    });
-})
+app.use(api);
 app.get('/', function(req, res, next){
   res.sendFile('index.html', { root: pubDir });
 });
