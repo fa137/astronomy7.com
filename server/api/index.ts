@@ -1,4 +1,5 @@
 import {Router} from "express";
+import {Phys} from "./phys"
 
 var api = Router();
 
@@ -7,6 +8,5 @@ api.get("/api", function(req, res, next) {
         api: "epic news here"
     })
 });
-
 
 export default api;
